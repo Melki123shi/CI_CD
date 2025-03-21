@@ -3,8 +3,10 @@ FROM python:3.14.0a6-alpine3.21
 RUN mkdir /app
 WORKDIR /app
 
-COPY . .
+COPY requirements.txt .
 
-EXPOSE 4000
+RUN pip install -r requirements.txt
+
+COPY . .
 
 CMD [ "python3", "main.py" ]
